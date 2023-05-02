@@ -10,8 +10,8 @@ describe Author do
     it 'has no items' do
       expect(author.items).to eq([])
     end
-    author.add_item(Item.new('War and Peace', 'book', 'Penguin', '2010'))
     it 'has one item' do
+      author.add_item(Item.new('War and Peace', author, 'book', 'Penguin', '2010'))
       expect(author.items.length).to eq(1)
     end
   end
