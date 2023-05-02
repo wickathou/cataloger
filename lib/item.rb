@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class Item
-  attr_reader :id
+  attr_reader :id, :genre, :author, :source, :label, :publish_date, :archived
   def initialize(genre, author, source, label, publish_date)
     @id = SecureRandom.uuid
     @genre = genre
@@ -18,7 +18,7 @@ class Item
 
   private
   def can_be_archived?
-    return true if @publish_date - Time.now.year > 10
+    return true if Time.now.year - @publish_date > 10
     false
   end
 end
