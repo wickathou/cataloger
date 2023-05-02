@@ -1,6 +1,6 @@
 require_relative 'utils'
 
-class main
+class Main
 include Utilities
   def initialize
     @genres = []
@@ -8,7 +8,10 @@ include Utilities
     @sources = []
     @labels = []
     @items = []
+    run
   end
+
+  private
 
   def run
     app_loop
@@ -16,17 +19,14 @@ include Utilities
 
   def option_selector(option)
     case option
-    when %w[1 2 3 4 5 6 7 8 9].include?(option)
+    when '1'
       puts 'Not implemented yet'
-    when '10'
-      app_exit
     else
-      puts 'That is not a valid input'
+      puts 'That is not a valid input or not yet implemented'
     end
   end
 
   def app_exit
-    save_data
     puts 'Thank you for using the Library App!'
   end
 
@@ -34,7 +34,7 @@ include Utilities
     loop do
       interface_menu
       option = gets.chomp
-      if option == '7'
+      if option == '10'
         app_exit
         break
       end
