@@ -42,5 +42,5 @@ class Game < Item
 
 end
 
-game = Game.new(['a', 'b', 'c'], ['d','e'], ['1','2'])
-puts game.inspect
+# game = Game.new(['a', 'b', 'c'], ['d','e'], ['1','2'])
+# puts game.inspect

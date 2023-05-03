@@ -1,11 +1,13 @@
+require_relative 'author'
 require 'securerandom'
 
 class Item
   attr_reader :id, :genre, :author, :label, :publish_date, :archived
-  def initialize(genre_array, author_array, label_array)
-    @id = SecureRandom.uuid
+  def initialize(genre_array, author_array, label_array, id = nil)
+    @id = id || SecureRandom.uuid
     @genre = instance_selector(genre_array)
     @author = instance_selector(author_array)
+    @author.items << self unless author.items.include?(self)
     @label = instance_selector(label_array)
     @publish_date = publish_date_input
     @archived = false 
@@ -34,16 +36,26 @@ class Item
 
   def instance_selector(array)
     array.each_with_index do |item, index|
-      puts "#{index} - #{item}"
+      list_formatter(item, index)
     end
+    puts "#{array.length} - create a new #{array[0].class}"
     selection = gets.chomp.to_i
-    if array[selection].nil?
+    if array[selection].nil? && selection != array.length
       puts 'Invalid selection'
       return instance_selector(array)
     end
-    return array[selection]
+    return array[selection] || array[0].class.new
+  end
+
+  def list_formatter(item,index)
+    case item.class.to_s
+    when 'Author'
+      puts "#{index} - #{item.first_name} #{item.last_name}"
+    else
+      puts "#{index} - #{item}"
+    end
   end
 end
 
-# item = Item.new(['a', 'b', 'c'], ['d','e'], ['1','2'])
-# puts item.inspect
+item = Item.new(['d','e'], [Author.new], ['1','2'])
+puts item.inspect

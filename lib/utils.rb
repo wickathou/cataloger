@@ -1,4 +1,6 @@
 require_relative 'game'
+require_relative 'item'
+require_relative 'author'
 
 module Utilities
   def interface_menu
@@ -14,5 +16,4 @@ module Utilities
     puts '9 - Create a game'
     puts '10 - Exit'
   end
-
 end
