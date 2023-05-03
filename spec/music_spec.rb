@@ -2,9 +2,9 @@ require_relative '../music/music'
 
 require_relative '../lib/item'
 
-describe Music do
+describe MusicAlbum do
   before :each do
-    @music = Music.new(true)
+    @music = MusicAlbum.new(true)
   end
 
   it 'check if the music is on spotify' do
