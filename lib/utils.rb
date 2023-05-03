@@ -20,5 +20,4 @@ module Utilities
     end
     arr
   end
-
 end

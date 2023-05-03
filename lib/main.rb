@@ -1,7 +1,7 @@
 require_relative 'utils'
 
 class Main
-include Utilities
+  include Utilities
   def initialize
     @genres = []
     @authors = []
