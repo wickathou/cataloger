@@ -15,12 +15,4 @@ module Utilities
     puts '10 - Exit'
   end
 
-  def input_prompt(arr)
-    (0..arr.length - 1).each do |i|
-      puts("#{arr.at(i)}:")
-      arr[i] = gets.chomp
-    end
-    arr
-  end
-
 end
