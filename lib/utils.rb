@@ -1,3 +1,5 @@
+require_relative 'game'
+
 module Utilities
   def interface_menu
     puts 'Please choose an option by entering a number:'
