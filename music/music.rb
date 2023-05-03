@@ -1,27 +1,16 @@
 require_relative '/lib/item'
 
-class MusicAlbum < Item
-  attr_accessor :artist, :on_spotify
+class MusicAlbum < item
+  attr_accessor :on_spotify
 
-  def initialize(name, description, price, artist, on_spotify)
-    super(name, description, price)
-    @artist = artist
+  def initialize(on_spotify, publish_date = 'unknown')
+    super(publish_date)
     @on_spotify = on_spotify
   end
 
+  private
+
   def can_be_archived?
-    super && @on_spotify
-  end
-
-  def to_json(*args)
-    {
-      'artist' => @artist,
-      'on_spotify' => @on_spotify
-    }.to_json(*args)
-  end
-
-  def self.from_json(json)
-    data = JSON.parse(json)
-    new(data['artist'], data['on_spotify'])
+    return true if super && on_spotify
   end
 end

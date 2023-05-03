@@ -1,27 +1,16 @@
+require_relative '../lib/item'
+
 class Genre
   attr_reader :id, :name, :items
 
-  attr_accessor :artist, :on_spotify
-
-  def initialize(name, description, price, artist, on_spotify)
-    super(name, description, price)
-    @artist = artist
-    @on_spotify = on_spotify
+  def initialize(name)
+    @id = securerandom.uuid
+    @name = name
+    @items = []
   end
 
-  def can_be_archived?
-    super && @on_spotify
-  end
-
-  def to_json(*args)
-    {
-      'artist' => @artist,
-      'on_spotify' => @on_spotify
-    }.to_json(*args)
-  end
-
-  def self.from_json(json)
-    data = JSON.parse(json)
-    new(data['artist'], data['on_spotify'])
+  def add_item(item)
+    item.genre = self
+    @items << item unless @items.include?(item)
   end
 end
