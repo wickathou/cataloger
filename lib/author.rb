@@ -22,7 +22,7 @@ class Author
     input_value = gets.chomp
     if input_value.empty?
       puts 'Invalid name'
-      return name_input
+      return text_input(tag)
     end
     return input_value
   end

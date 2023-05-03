@@ -3,10 +3,9 @@ require_relative 'utils'
 class App
 include Utilities
   def initialize
-    @genres = []
-    @authors = [Author.new]
-    @sources = []
-    @labels = []
+    @genres = ['a', 'b', 'c']
+    @authors = []
+    @labels = ['1', '2', '3']
     @items = []
     run
   end
@@ -21,6 +20,12 @@ include Utilities
     case option
     when '1'
       puts 'Not implemented yet'
+    when '3'
+      list_all_instances(@items)
+    when '5'
+      list_all_instances(@authors)
+    when '8'
+      @items << Game.new(@genres, @authors, @labels)
     else
       puts 'That is not a valid input or not yet implemented'
     end
@@ -34,7 +39,7 @@ include Utilities
     loop do
       interface_menu
       option = gets.chomp
-      if option == '10'
+      if option == '9'
         app_exit
         break
       end

@@ -5,10 +5,11 @@ class Item
   attr_reader :id, :genre, :author, :label, :publish_date, :archived
   def initialize(genre_array, author_array, label_array, id = nil)
     @id = id || SecureRandom.uuid
+    puts 'Please select a genre'
     @genre = instance_selector(genre_array)
-    @author = instance_selector(author_array)
+    puts 'Please select an author'
+    @author = instance_selector(author_array, Author)
     @author.items << self unless author.items.include?(self)
-    @label = instance_selector(label_array)
     @publish_date = publish_date_input
     @archived = false 
   end
@@ -34,17 +35,21 @@ class Item
     return publish_date
   end
 
-  def instance_selector(array)
+  def instance_selector(array, class_name = nil)
     array.each_with_index do |item, index|
       list_formatter(item, index)
     end
-    puts "#{array.length} - create a new #{array[0].class}"
+    puts "#{array.length} - create a new #{class_name || array[0].class}"
     selection = gets.chomp.to_i
-    if array[selection].nil? && selection != array.length
+    return array[selection] unless array[selection].nil?
+    if selection == array.length
+      new_instance = class_name.new 
+      array << new_instance
+      return new_instance
+    else
       puts 'Invalid selection'
       return instance_selector(array)
     end
-    return array[selection] || array[0].class.new
   end
 
   def list_formatter(item,index)
@@ -57,5 +62,5 @@ class Item
   end
 end
 
-item = Item.new(['d','e'], [Author.new], ['1','2'])
-puts item.inspect
+# item = Item.new(['d','e'], ['a'], ['1','2'])
+# puts item.inspect
