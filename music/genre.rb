@@ -2,7 +2,7 @@ class Genre
   attr_reader :id, :name, :items
 
   def initialize(name)
-    @id = Random.rand(1..100)
+    @id = securerandom.uuid
     @name = name
     @items = []
   end
