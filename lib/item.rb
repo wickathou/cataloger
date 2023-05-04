@@ -59,6 +59,10 @@ class Item
     case item.class.to_s
     when 'Author'
       puts "#{index} - #{item.first_name} #{item.last_name}"
+    when 'Genre'
+      puts "#{index} - #{item.name}"
+    when 'Label'
+      puts "#{index} - #{item.title} - #{item.color}"
     else
       puts "#{index} - #{item}"
     end

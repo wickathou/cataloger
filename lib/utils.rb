@@ -6,6 +6,7 @@ require_relative 'label'
 require_relative 'genre'
 require_relative 'category_utils'
 require_relative 'author'
+require_relative 'save_decorator'
 
 module Utilities
   def interface_menu

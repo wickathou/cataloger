@@ -55,7 +55,15 @@ include Utilities
     end
   end
 
+  def save_data
+    SaveAuthorDecorator.new(@authors).save_routine
+    SaveGenreDecorator.new(@genres).save_routine
+    SaveLabelDecorator.new(@labels).save_routine
+    SaveItemDecorator.new(@items).save_routine
+  end
+
   def app_exit
+    save_data
     puts 'Thank you for using the Catalog App!'
   end
 

@@ -16,19 +16,8 @@ include Category_Utils
     @items << item unless @items.include?(item)
     item.author = self
   end
-
-  # private
-
-  # def text_input(tag)
-  #   puts"Please enter the author #{tag} name"
-  #   input_value = gets.chomp
-  #   if input_value.empty?
-  #     puts 'Invalid name'
-  #     return text_input(tag)
-  #   end
-  #   return input_value
-  # end
 end
+
 
 # author = Author.new
 # puts author.inspect
