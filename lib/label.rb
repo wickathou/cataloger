@@ -16,5 +16,5 @@ include Category_Utils
     end
 end
 
-label = Label.new
-puts label.inspect
+# label = Label.new
+# puts label.inspect

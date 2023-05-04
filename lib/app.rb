@@ -19,11 +19,17 @@ include Utilities
   def option_selector(option)
     case option
     when '1'
-      puts 'Not implemented yet'
+      list_all_instances(@items)
     when '3'
       list_all_instances(@items)
     when '5'
       list_all_instances(@authors)
+    when '6'
+      puts 'Input the book publisher'
+      publisher = gets.chomp
+      puts 'Input the book cover state'
+      cover_state = gets.chomp
+      @items << Book.new(@genres, @authors, @labels, publisher, cover_state)
     when '8'
       @items << Game.new(@genres, @authors, @labels)
     else

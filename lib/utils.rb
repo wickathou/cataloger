@@ -1,5 +1,10 @@
 require_relative 'game'
 require_relative 'item'
+require_relative 'music'
+require_relative 'book'
+require_relative 'label'
+require_relative 'genre'
+require_relative 'category_utils'
 require_relative 'author'
 
 module Utilities
