@@ -21,7 +21,7 @@ include Utilities
     when '1'
       puts 'Not implemented yet'
     when '3'
-      list_all_instances(@items)
+      list_all_instances(@items, 'Game')
     when '5'
       list_all_instances(@authors)
     when '8'
