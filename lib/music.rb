@@ -1,10 +1,10 @@
-require_relative '/lib/item'
+require_relative 'item'
 
-class MusicAlbum < item
+class MusicAlbum < Item
   attr_accessor :on_spotify
 
-  def initialize(on_spotify, publish_date = 'unknown')
-    super(publish_date)
+  def initialize(genre_array, author_array, label_array, on_spotify = false)
+    super(genre_array, author_array, label_array)
     @on_spotify = on_spotify
   end
 
@@ -14,3 +14,6 @@ class MusicAlbum < item
     return true if super && on_spotify
   end
 end
+
+music = MusicAlbum.new(['a', 'b', 'c'], [Author.new], ['1','2'], true)
+puts music.inspect

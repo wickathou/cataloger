@@ -13,5 +13,5 @@ class Book < Item
   end
 end
 
-book = Book.new(['a', 'b', 'c'], [Author.new], ['1','2'], 'publisher', 'cover_state')
-puts book.inspect
+# book = Book.new(['a', 'b', 'c'], [Author.new], ['1','2'], 'publisher', 'cover_state')
+# puts book.inspect
