@@ -2,7 +2,7 @@ require_relative 'category_utils'
 require 'securerandom'
 
 class Genre
-include Category_Utils
+  include Category_Utils
   attr_reader :id, :name, :items
 
   def initialize

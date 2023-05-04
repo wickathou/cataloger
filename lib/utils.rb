@@ -23,9 +23,10 @@ module Utilities
   end
 
   def list_all_instances(array, class_name = nil)
-    return puts 'No items' if array.empty? || array.none? { |item| item.is_a?(class_name)} unless class_name.nil?
+    return puts 'No items' if (!class_name.nil? && array.empty?) || array.none? { |item| item.is_a?(class_name) }
+
     array.each_with_index do |item, index|
-      if item.class == class_name
+      if item.instance_of?(class_name)
         puts "#{index} - Item class: #{item.class}"
         class_name_lister(item, item.class)
       elsif class_name.nil?
@@ -55,7 +56,7 @@ module Utilities
       puts "Publish date: #{item.publish_date} - Label: #{item.label}"
       puts "On spotify:#{item.on_spotify} - archived: #{item.archived}"
     else
-      puts "#{item}"
+      puts item
     end
   end
 end
