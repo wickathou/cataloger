@@ -30,19 +30,9 @@ include Utilities
       list_all_instances(@genres, Genre)
     when '5'
       list_all_instances(@authors, Author)
+    when '6'
+      list_all_instances(@labels, Label)
     when '7'
-
-      # private
-    
-      # def text_input(tag)
-      #   puts"Please enter the author #{tag} name"
-      #   input_value = gets.chomp
-      #   if input_value.empty?
-      #     puts 'Invalid name'
-      #     return text_input(tag)
-      #   end
-      #   return input_value
-      # end
       puts 'Input the book publisher'
       publisher = gets.chomp
       puts 'Input the book cover state'

@@ -37,9 +37,11 @@ module Utilities
   def class_name_lister(item, class_name = nil)
     case class_name.to_s
     when 'Author'
-      puts "#{item.first_name} #{item.last_name}"
+      puts "First name: #{item.first_name} Last name: #{item.last_name}"
     when 'Genre'
-      puts "#{item.name}"
+      puts "Genre name: #{item.name}"
+    when 'Label'
+      puts "Title: #{item.title} - Color: #{item.color}"
     when 'Game'
       puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name}"
       puts "Publish date: #{item.publish_date} - Label: #{item.label}"

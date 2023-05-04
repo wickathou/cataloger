@@ -9,6 +9,8 @@ class Item
     @genre = instance_selector(genre_array, Genre)
     puts 'Please select an author'
     @author = instance_selector(author_array, Author)
+    puts 'Please select a label'
+    @label = instance_selector(label_array, Label)
     @author.items << self unless author.items.include?(self)
     @publish_date = publish_date_input
     @archived = false 
