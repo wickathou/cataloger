@@ -19,7 +19,7 @@ module Utilities
   def list_all_instances(array)
     return puts 'No items' if array.empty?
     array.each_with_index do |item, index|
-      puts "#{index} -"
+      puts "#{index} - Item class: #{item.class}"
       class_name_lister(item, item.class)
     end
   end

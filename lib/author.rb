@@ -3,7 +3,7 @@ require 'securerandom'
 class Author
   attr_reader :id, :first_name, :last_name
   attr_accessor :items
-  def initialize(id=nil)
+  def initialize(id=nil,)
     @id = id || SecureRandom.uuid
     @first_name = text_input('first')
     @last_name = text_input('last')
