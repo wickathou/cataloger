@@ -21,11 +21,15 @@ module Utilities
     puts '9 - Exit'
   end
 
-  def list_all_instances(array)
-    return puts 'No items' if array.empty?
+  def list_all_instances(array, class_name = nil)
+    return puts 'No items' if array.empty? || array.none? { |item| item.is_a?(class_name)}
     array.each_with_index do |item, index|
-      puts "#{index} - Item class: #{item.class}"
-      class_name_lister(item, item.class)
+      if item.class == class_name
+        puts "#{index} - Item class: #{item.class}"
+        class_name_lister(item, item.class)
+      elsif class_name.nil?
+        puts "#{index} - #{item}"
+      end
     end
   end
 
@@ -37,6 +41,10 @@ module Utilities
       puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name}"
       puts "Publish date: #{item.publish_date} - Label: #{item.label}"
       puts "Multiplayer: #{item.multiplayer} - Last played: #{item.last_played_date} - archived: #{item.archived}"
+    when 'Book'
+      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name}"
+      puts "Publish date: #{item.publish_date} - Label: #{item.label}"
+      puts "Publisher: #{item.publisher} - Cover state: #{item.cover_state} - archived: #{item.archived}"
     else
       puts "#{item}"
     end

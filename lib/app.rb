@@ -19,11 +19,11 @@ include Utilities
   def option_selector(option)
     case option
     when '1'
-      list_all_instances(@items)
+      list_all_instances(@items, Book)
     when '3'
-      list_all_instances(@items)
+      list_all_instances(@items, Game)
     when '5'
-      list_all_instances(@authors)
+      list_all_instances(@authors, Author)
     when '6'
       puts 'Input the book publisher'
       publisher = gets.chomp

@@ -30,5 +30,5 @@ include Category_Utils
   # end
 end
 
-author = Author.new
-puts author.inspect
+# author = Author.new
+# puts author.inspect

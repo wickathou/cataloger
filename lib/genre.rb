@@ -16,5 +16,5 @@ include Category_Utils
     @items << item unless @items.include?(item)
   end
 end
-genre = Genre.new
-puts genre.inspect
+# genre = Genre.new
+# puts genre.inspect
