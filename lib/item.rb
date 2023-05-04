@@ -6,7 +6,7 @@ class Item
   def initialize(genre_array, author_array, label_array, id = nil)
     @id = id || SecureRandom.uuid
     puts 'Please select a genre'
-    @genre = instance_selector(genre_array)
+    @genre = instance_selector(genre_array, Genre)
     puts 'Please select an author'
     @author = instance_selector(author_array, Author)
     @author.items << self unless author.items.include?(self)

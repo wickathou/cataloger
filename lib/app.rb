@@ -3,9 +3,9 @@ require_relative 'utils'
 class App
 include Utilities
   def initialize
-    @genres = ['a', 'b', 'c']
+    @genres = []
     @authors = []
-    @labels = ['1', '2', '3']
+    @labels = []
     @items = []
     run
   end
@@ -26,9 +26,23 @@ include Utilities
       list_all_instances(@items, MusicAlbum)
     when '3'
       list_all_instances(@items, Game)
+    when '4'
+      list_all_instances(@genres, Genre)
     when '5'
       list_all_instances(@authors, Author)
     when '7'
+
+      # private
+    
+      # def text_input(tag)
+      #   puts"Please enter the author #{tag} name"
+      #   input_value = gets.chomp
+      #   if input_value.empty?
+      #     puts 'Invalid name'
+      #     return text_input(tag)
+      #   end
+      #   return input_value
+      # end
       puts 'Input the book publisher'
       publisher = gets.chomp
       puts 'Input the book cover state'

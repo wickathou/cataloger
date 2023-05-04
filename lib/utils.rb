@@ -38,6 +38,8 @@ module Utilities
     case class_name.to_s
     when 'Author'
       puts "#{item.first_name} #{item.last_name}"
+    when 'Genre'
+      puts "#{item.name}"
     when 'Game'
       puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name}"
       puts "Publish date: #{item.publish_date} - Label: #{item.label}"
