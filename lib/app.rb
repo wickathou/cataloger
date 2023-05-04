@@ -39,7 +39,7 @@ class App
       cover_state = gets.chomp
       @items << Book.new(@genres, @authors, @labels, publisher, cover_state)
     when '8'
-      @items << MusicAlbum.new(@genres, @authors, @labels, on_spotify)
+      @items << MusicAlbum.new(@genres, @authors, @labels)
     when '9'
       @items << Game.new(@genres, @authors, @labels)
     else

@@ -5,7 +5,7 @@ class MusicAlbum < Item
 
   def initialize(genre_array, author_array, label_array)
     super(genre_array, author_array, label_array)
-    @on_spotify = on_spotify
+    @on_spotify = on_spotify_input
   end
 
   private
@@ -14,15 +14,14 @@ class MusicAlbum < Item
     return true if super && on_spotify
   end
 
-  def on_spotify
+  def on_spotify_input
     puts 'Is the music album on spotify? y/n'
     on_spotify = gets.chomp.downcase
     case on_spotify
     when 'y'
-      on_spotify = true
+      @on_spotify = true
     else
-      on_spotify = false
-      false
+      @on_spotify = false
     end
   end
 end
