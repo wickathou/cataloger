@@ -1,12 +1,14 @@
+require_relative 'category_utils'
 require 'securerandom'
 
 class Author
+include Category_Utils
   attr_reader :id, :first_name, :last_name
   attr_accessor :items
   def initialize(id=nil)
     @id = id || SecureRandom.uuid
-    @first_name = text_input('first')
-    @last_name = text_input('last')
+    @first_name = text_input('firstname')
+    @last_name = text_input('lastname')
     @items = []
   end
 
@@ -15,18 +17,18 @@ class Author
     item.author = self
   end
 
-  private
+  # private
 
-  def text_input(tag)
-    puts"Please enter the author #{tag} name"
-    input_value = gets.chomp
-    if input_value.empty?
-      puts 'Invalid name'
-      return text_input(tag)
-    end
-    return input_value
-  end
+  # def text_input(tag)
+  #   puts"Please enter the author #{tag} name"
+  #   input_value = gets.chomp
+  #   if input_value.empty?
+  #     puts 'Invalid name'
+  #     return text_input(tag)
+  #   end
+  #   return input_value
+  # end
 end
 
-# author = Author.new
-# puts author.inspect
+author = Author.new
+puts author.inspect

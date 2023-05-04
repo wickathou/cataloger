@@ -15,5 +15,5 @@ class MusicAlbum < Item
   end
 end
 
-music = MusicAlbum.new(['a', 'b', 'c'], [Author.new], ['1','2'], true)
-puts music.inspect
+# music = MusicAlbum.new(['a', 'b', 'c'], [Author.new], ['1','2'], true)
+# puts music.inspect

@@ -1,11 +1,13 @@
-require_relative '../lib/item'
+require_relative 'category_utils'
+require 'securerandom'
 
 class Genre
+include Category_Utils
   attr_reader :id, :name, :items
 
-  def initialize(name)
-    @id = securerandom.uuid
-    @name = name
+  def initialize
+    @id = SecureRandom.uuid
+    @name = text_input('genre name')
     @items = []
   end
 
@@ -14,3 +16,5 @@ class Genre
     @items << item unless @items.include?(item)
   end
 end
+genre = Genre.new
+puts genre.inspect
