@@ -15,14 +15,15 @@ module Utilities
     puts '3 - List all games'
     puts '4 - List all genres'
     puts '5 - List all authors'
-    puts '6 - Create a book'
-    puts '7 - Create a music album'
-    puts '8 - Create a game'
-    puts '9 - Exit'
+    puts '6 - List all labels'
+    puts '7 - Create a book'
+    puts '8 - Create a music album'
+    puts '9 - Create a game'
+    puts '10 - Exit'
   end
 
   def list_all_instances(array, class_name = nil)
-    return puts 'No items' if array.empty? || array.none? { |item| item.is_a?(class_name)}
+    return puts 'No items' if array.empty? || array.none? { |item| item.is_a?(class_name)} unless class_name.nil?
     array.each_with_index do |item, index|
       if item.class == class_name
         puts "#{index} - Item class: #{item.class}"
@@ -45,6 +46,10 @@ module Utilities
       puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name}"
       puts "Publish date: #{item.publish_date} - Label: #{item.label}"
       puts "Publisher: #{item.publisher} - Cover state: #{item.cover_state} - archived: #{item.archived}"
+    when 'MusicAlbum'
+      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name}"
+      puts "Publish date: #{item.publish_date} - Label: #{item.label}"
+      puts "On spotify:#{item.on_spotify} - archived: #{item.archived}"
     else
       puts "#{item}"
     end

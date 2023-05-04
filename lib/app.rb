@@ -18,19 +18,33 @@ include Utilities
 
   def option_selector(option)
     case option
+    when '0'
+      list_all_instances(@items)
     when '1'
       list_all_instances(@items, Book)
+    when '2'
+      list_all_instances(@items, MusicAlbum)
     when '3'
       list_all_instances(@items, Game)
     when '5'
       list_all_instances(@authors, Author)
-    when '6'
+    when '7'
       puts 'Input the book publisher'
       publisher = gets.chomp
       puts 'Input the book cover state'
       cover_state = gets.chomp
       @items << Book.new(@genres, @authors, @labels, publisher, cover_state)
     when '8'
+      puts 'Is the music album on spotify? y/n'
+      on_spotify = gets.chomp.downcase
+      case on_spotify
+      when 'y'
+        on_spotify = true
+      else
+        on_spotify = false
+      end
+      @items << MusicAlbum.new(@genres, @authors, @labels, on_spotify)
+    when '9'
       @items << Game.new(@genres, @authors, @labels)
     else
       puts 'That is not a valid input or not yet implemented'
@@ -38,14 +52,14 @@ include Utilities
   end
 
   def app_exit
-    puts 'Thank you for using the Library App!'
+    puts 'Thank you for using the Catalog App!'
   end
 
   def app_loop
     loop do
       interface_menu
       option = gets.chomp
-      if option == '9'
+      if option == '10'
         app_exit
         break
       end
