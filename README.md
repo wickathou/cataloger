@@ -43,7 +43,7 @@ Cataloger: In this project, we created a console app that will help user to keep
 
 ## 🚀 Video Demo <a name="video-demo"></a>
 
-- [Video Presentation](https://drive.google.com/file/d/1qlVujgklgt2I1tAiO1a93D11yZplsaB0/view?usp=sharing)
+- [Video Presentation](https://drive.google.com/file/d/1SqGdtflpsnJATdV6KLpV0DLCJ28ngdBt/view?usp=share_link)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
