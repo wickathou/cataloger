@@ -2,7 +2,7 @@ require_relative 'category_utils'
 require 'securerandom'
 
 class Author
-  include Category_Utils
+  include CategoryUtils
   attr_reader :id, :first_name, :last_name
   attr_accessor :items
 

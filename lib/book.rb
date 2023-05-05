@@ -17,12 +17,12 @@ class Book < Item
 
   def publisher_input
     puts 'Input the book publisher'
-    publisher = gets.chomp
+    gets.chomp
   end
 
   def cover_state_input
     puts 'Input the book cover state'
-    cover_state = gets.chomp
+    gets.chomp
   end
 end
 

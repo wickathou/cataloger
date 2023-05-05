@@ -82,20 +82,9 @@ class SaveItemDecorator < SaveDecorator
       @hash[instance] = {
         id: instance.id,
         item_class: instance.class.to_s,
-        genre: {
-          genre_id: instance.genre.id,
-          genre_name: instance.genre.name
-        },
-        author: {
-          author_id: instance.author.id,
-          author_first_name: instance.author.first_name,
-          author_last_name: instance.author.last_name
-        },
-        label: {
-          label_id: instance.label.id,
-          label_title: instance.label.title,
-          label_color: instance.label.color
-        },
+        genre: genre_hash(instance),
+        author: author_hash(instance),
+        label: label_hash(instance),
         publish_date: instance.publish_date,
         archived: instance.archived,
         class_properties: class_properties_generator(instance)
@@ -138,6 +127,29 @@ end
 def music_class(instance)
   {
     on_spotify: instance.on_spotify
+  }
+end
+
+def genre_hash(instance)
+  {
+    genre_id: instance.genre.id,
+    genre_name: instance.genre.name
+  }
+end
+
+def author_hash(instance)
+  {
+    author_id: instance.author.id,
+    author_first_name: instance.author.first_name,
+    author_last_name: instance.author.last_name
+  }
+end
+
+def label_hash(instance)
+  {
+    label_id: instance.label.id,
+    label_title: instance.label.title,
+    label_color: instance.label.color
   }
 end
 

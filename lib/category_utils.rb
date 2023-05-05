@@ -1,4 +1,4 @@
-module Category_Utils
+module CategoryUtils
   def text_input(tag)
     puts "Please enter the #{tag}"
     input_value = gets.chomp

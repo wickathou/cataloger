@@ -10,13 +10,13 @@ class MusicAlbum < Item
 
   def on_spotify_input
     puts 'Is the music album on spotify? y/n'
-    on_spotify = gets.chomp.downcase
-    on_spotify = case on_spotify
-                 when 'y'
-                   true
-                 else
-                   false
-                 end
+    response = gets.chomp.downcase
+    case response
+    when 'y'
+      true
+    else
+      false
+    end
   end
 
   private

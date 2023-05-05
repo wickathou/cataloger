@@ -2,7 +2,7 @@ require_relative 'category_utils'
 require 'securerandom'
 
 class Label
-  include Category_Utils
+  include CategoryUtils
   attr_accessor :id, :title, :color, :items
 
   def initialize

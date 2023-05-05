@@ -5,7 +5,7 @@ class Game < Item
 
   def initialize(genre_array, author_array, label_array)
     super(genre_array, author_array, label_array)
-    @multiplayer = is_multiplayer?
+    @multiplayer = multiplayer?
     @last_played_date = last_played_date_input
   end
 
@@ -17,7 +17,7 @@ class Game < Item
     false
   end
 
-  def is_multiplayer?
+  def multiplayer?
     puts 'Is this game multiplayer? (y/n)'
     multiplayer = gets.chomp.downcase
     case multiplayer
@@ -27,7 +27,7 @@ class Game < Item
       false
     else
       puts 'Invalid input'
-      is_multiplayer?
+      multiplayer?
     end
   end
 

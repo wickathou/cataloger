@@ -23,6 +23,34 @@ module Utilities
     puts '10 - Exit'
   end
 
+  def listing_methods(input)
+    case input
+    when '1'
+      list_all_instances(@items, Book)
+    when '2'
+      list_all_instances(@items, MusicAlbum)
+    when '3'
+      list_all_instances(@items, Game)
+    when '4'
+      list_all_instances(@genres, Genre)
+    when '5'
+      list_all_instances(@authors, Author)
+    when '6'
+      list_all_instances(@labels, Label)
+    end
+  end
+
+  def creator_methods(input)
+    case input
+    when '7'
+      @items << Book.new(@genres, @authors, @labels)
+    when '8'
+      @items << MusicAlbum.new(@genres, @authors, @labels)
+    when '9'
+      @items << Game.new(@genres, @authors, @labels)
+    end
+  end
+
   def list_all_instances(array, class_name = nil)
     return puts 'No items' if (!class_name.nil? && array.empty?) || array.none? { |item| item.is_a?(class_name) }
 
@@ -30,8 +58,6 @@ module Utilities
       if item.instance_of?(class_name)
         puts "#{index} - Item class: #{item.class}"
         class_name_lister(item, item.class)
-      elsif class_name.nil?
-        puts "#{index} - #{item}"
       end
     end
   end
@@ -43,18 +69,16 @@ module Utilities
     when 'Genre'
       puts "Genre name: #{item.name}"
     when 'Label'
-      puts "Title: #{item.title} - Color: #{item.color}"
+      puts "Title:#{item.title}-Color:#{item.color}"
     when 'Game'
-      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name} - Publish date: #{item.publish_date}"
-      puts "Label: #{item.label} - Multiplayer: #{item.multiplayer} - Last played: #{item.last_played_date} - archived: #{item.archived}"
+      puts "Genre:#{item.genre.name}-Author:#{item.author.first_name}-Label:#{item.label}"
+      puts "Multiplayer:#{item.multiplayer}-Played:#{item.last_played_date}-archived:#{item.archived}"
     when 'Book'
-      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name} - Publish date: #{item.publish_date}"
-      puts "Label: #{item.label} - Publisher: #{item.publisher} - Cover state: #{item.cover_state} - archived: #{item.archived}"
+      puts "Genre:#{item.genre.name}-Author:#{item.author.first_name}-Published:#{item.publish_date}"
+      puts "Label:#{item.label.title}-Cover state:#{item.cover_state}-archived:#{item.archived}"
     when 'MusicAlbum'
-      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name} - Publish date: #{item.publish_date}"
-      puts "Label: #{item.label} - On spotify:#{item.on_spotify} - archived: #{item.archived}"
-    else
-      puts item
+      puts "Genre:#{item.genre.name}-Author:#{item.author.first_name}-Published:#{item.publish_date}"
+      puts "Label:#{item.label.title}-On spotify:#{item.on_spotify}-archived:#{item.archived}"
     end
   end
 end

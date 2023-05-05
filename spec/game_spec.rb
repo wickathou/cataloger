@@ -13,7 +13,7 @@ describe Game do
 
   context 'when initialized' do
     before do
-      allow_any_instance_of(Game).to receive(:is_multiplayer?).and_return(true)
+      allow_any_instance_of(Game).to receive(:multiplayer?).and_return(true)
       allow_any_instance_of(Game).to receive(:publish_date_input).and_return(2010)
     end
 
@@ -36,7 +36,7 @@ describe Game do
 
   context 'when initialized' do
     before do
-      allow_any_instance_of(Game).to receive(:is_multiplayer?).and_return(false)
+      allow_any_instance_of(Game).to receive(:multiplayer?).and_return(false)
       allow_any_instance_of(Game).to receive(:publish_date_input).and_return(2015)
       allow_any_instance_of(Game).to receive(:last_played_date_input).and_return(2020)
     end
