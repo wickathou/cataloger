@@ -14,16 +14,16 @@ describe Author do
     end
   end
 
-  # context 'when adding an item' do
-  #   let(:item) {double('item')}
-
-  #   before do
-  #     allow(item).to receive(:author)
-  #   end
-
-  #   it 'adds the item to the author' do
-  #     author.add_item(item)
-  #     expect(author.items).to include(item)
-  #   end
-  # end
+  context 'when adding an item' do
+    
+    let(:item) {double('item', author: nil)}
+    before do
+      allow(item).to receive(:author=).with(author).and_return(author)
+    end
+    
+    it 'adds the item to the author' do
+      author.add_item(item)
+      expect(author.items).to include(item)
+    end
+  end
 end
