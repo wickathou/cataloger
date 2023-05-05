@@ -1,6 +1,6 @@
 require_relative 'spec_utils'
 
-require './label'
+require './lib/label'
 
 describe Label do
   context 'create a book' do
