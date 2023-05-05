@@ -8,14 +8,14 @@ class Game < Item
     @last_played_date = last_played_date_input
   end
 
-  
-  private
-  
   def can_be_archived?
     return true if Time.now.year - @last_played_date > 2 && super
 
     false
   end
+  
+  private
+  
 
   def is_multiplayer?
     puts 'Is this game multiplayer? (y/n)'
