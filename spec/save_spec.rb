@@ -1,15 +1,15 @@
 require_relative 'spec_utils'
 
 describe 'Save decorators' do
-  # let(:item) {instance_double(Item, author: author, genre: genre, label: label, publish_date: 2010, archived: false, id: '123456789123456789123456789123456789')}
-  let(:generic_item) {instance_double(Item, id: '123456789123456789123456789123456789')}
-  let(:genre) {instance_double(Genre, items: [generic_item], id: '123456789123456789123456789123456789', name: 'genre')}
-  let(:label) {instance_double(Label, items: [generic_item], id: '123456789123456789123456789123456789', title: 'label', color: 'red')}
-  let(:author) {instance_double(Author, items: [generic_item], id: '123456789123456789123456789123456789', first_name: 'John', last_name: 'Doe')}
+  id = '123456789123456789123456789123456789'
+  let(:generic_item) {instance_double(Item, id: id)}
+  let(:genre) {instance_double(Genre, items: [generic_item], id: id, name: 'genre')}
+  let(:label) {instance_double(Label, items: [generic_item], id: id, title: 'label', color: 'red')}
+  let(:author) {instance_double(Author, items: [generic_item], id: id, first_name: 'John', last_name: 'Doe')}
 
-  let(:game) {instance_double(Game, author: author, genre: genre, label: label, publish_date: 2010, archived: false, id: '123456789123456789123456789123456789')}
-  let(:music) {instance_double(MusicAlbum, author: author, genre: genre, label: label, publish_date: 2010, archived: false, id: '123456789123456789123456789123456789')}
-  let(:book) {instance_double(Book, author: author, genre: genre, label: label, publish_date: 2010, archived: false, id: '123456789123456789123456789123456789')}
+  let(:game) {instance_double(Game, author: author, genre: genre, label: label, publish_date: 2010, archived: false, id: id)}
+  let(:music) {instance_double(MusicAlbum, author: author, genre: genre, label: label, publish_date: 2010, archived: false, id: id)}
+  let(:book) {instance_double(Book, author: author, genre: genre, label: label, publish_date: 2010, archived: false, id: id)}
 
   let(:items) {[game, music, book]}
 
