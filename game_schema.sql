@@ -29,3 +29,5 @@ item_id varchar(36) references item(id),
 author_id varchar(36) references author(id),
 genre_id varchar(36) references genre(id),
 label_id varchar(36) references label(id));
+
+
