@@ -72,7 +72,7 @@ class SaveGenreDecorator < SaveDecorator
   end
 
   def save_json
-    File.write('./data/genre.json', to_json)
+    File.write('./data/genres.json', to_json)
   end
 end
 

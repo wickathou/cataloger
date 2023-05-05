@@ -1,44 +1,44 @@
 {
-  "#<Book:0x0000558454274f38>": {
-    "id": "c3d69ef4-e8ae-4dc4-a927-1c6f375523be",
-    "item_class": "Book",
+  "#[InstanceDouble(Game) (anonymous)]": {
+    "id": "123456789123456789123456789123456789",
+    "item_class": "RSpec::Mocks::InstanceVerifyingDouble",
     "genre": {
-      "genre_id": "19ec318a-a6c8-4931-a75c-3d63476531b4",
-      "genre_name": "weqreg"
+      "genre_id": "123456789123456789123456789123456789",
+      "genre_name": "genre"
     },
     "author": {
-      "author_id": "f2dfbb95-9555-42e1-8ceb-4d67563e1222",
-      "author_first_name": "ewqrerg",
-      "author_last_name": "wqreteh"
+      "author_id": "123456789123456789123456789123456789",
+      "author_first_name": "John",
+      "author_last_name": "Doe"
     },
     "label": {
-      "label_id": "aebba39e-c26a-4401-8e4e-a5f3c7c9b396",
-      "label_title": "qwerrge",
-      "label_color": "wqeret"
+      "label_id": "123456789123456789123456789123456789",
+      "label_title": "label",
+      "label_color": "red"
     },
-    "publish_date": 2020,
+    "publish_date": 2010,
     "archived": false,
     "class_properties": {
-      "publisher": "qwerw",
-      "cover_state": "wqreteh"
+      "multiplayer": true,
+      "last_played_date": 2020
     }
   },
-  "#<MusicAlbum:0x000055845422c300>": {
-    "id": "3fd5ebf7-f5ca-4f8b-ac41-f50c9b2273b8",
-    "item_class": "MusicAlbum",
+  "#[InstanceDouble(MusicAlbum) (anonymous)]": {
+    "id": "123456789123456789123456789123456789",
+    "item_class": "RSpec::Mocks::InstanceVerifyingDouble",
     "genre": {
-      "genre_id": "19ec318a-a6c8-4931-a75c-3d63476531b4",
-      "genre_name": "weqreg"
+      "genre_id": "123456789123456789123456789123456789",
+      "genre_name": "genre"
     },
     "author": {
-      "author_id": "aac80448-8a6e-4a82-9101-d26402065dfe",
-      "author_first_name": "qwert",
-      "author_last_name": "qwreth"
+      "author_id": "123456789123456789123456789123456789",
+      "author_first_name": "John",
+      "author_last_name": "Doe"
     },
     "label": {
-      "label_id": "aebba39e-c26a-4401-8e4e-a5f3c7c9b396",
-      "label_title": "qwerrge",
-      "label_color": "wqeret"
+      "label_id": "123456789123456789123456789123456789",
+      "label_title": "label",
+      "label_color": "red"
     },
     "publish_date": 2010,
     "archived": false,
@@ -46,28 +46,28 @@
       "on_spotify": true
     }
   },
-  "#<Game:0x000055845421fa60>": {
-    "id": "910a4820-48d6-4569-835a-4a46a80ae5e0",
-    "item_class": "Game",
+  "#[InstanceDouble(Book) (anonymous)]": {
+    "id": "123456789123456789123456789123456789",
+    "item_class": "RSpec::Mocks::InstanceVerifyingDouble",
     "genre": {
-      "genre_id": "3ab4f32f-ed93-49e7-8574-9db9408d0340",
-      "genre_name": "asdfv"
+      "genre_id": "123456789123456789123456789123456789",
+      "genre_name": "genre"
     },
     "author": {
-      "author_id": "aac80448-8a6e-4a82-9101-d26402065dfe",
-      "author_first_name": "qwert",
-      "author_last_name": "qwreth"
+      "author_id": "123456789123456789123456789123456789",
+      "author_first_name": "John",
+      "author_last_name": "Doe"
     },
     "label": {
-      "label_id": "aebba39e-c26a-4401-8e4e-a5f3c7c9b396",
-      "label_title": "qwerrge",
-      "label_color": "wqeret"
+      "label_id": "123456789123456789123456789123456789",
+      "label_title": "label",
+      "label_color": "red"
     },
-    "publish_date": 2020,
+    "publish_date": 2010,
     "archived": false,
     "class_properties": {
-      "multiplayer": false,
-      "last_played_date": 2021
+      "publisher": "Penguin",
+      "cover_state": "Good"
     }
   }
 }

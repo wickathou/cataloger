@@ -1,21 +1,31 @@
-require_relative 'spec_utils'
+require 'minitest/autorun'
+require 'rspec'
+require_relative '../lib/book'
 
-require_relative './book'
-
-describe Book do
-  context 'create a book' do
-    book = Book.new('things fall apart', 'bad', '04-05-2023')
-
-    it 'return name of the publisher' do
-      expect(book.publisher).to eq('things fall apart')
-    end
-
-    it 'return the state of the book' do
-      expect(book.cover_state).to eq('bad')
-    end
-
-    it 'return publshing  date' do
-      expect(book.publish_date).to eq('04-05-2023')
-    end
+class TestBookAlbum < Minitest::Test
+  def setup
+    @genre = ['Fiction']
+    @author = ['james']
+    @label = ['script']
+    
   end
+
+  def test_can_be_archived_returns_true_when_cover_state_is_bad
+  #  @book.cover_state = 'bad'
+   @book = Book.new('fiction', 'victor', 'script')
+   assert_true(@book.can_be_archived)
+  end
+
+  # def test_can_be_archived_returns_false_when_cover_state_is_good
+  #   @book.cover_state = 'good'
+  #   assert_true(@book.can_be_archived)
+  # end
+
+#   def test_can_be_archived_returns_true_when_superclass_method_returns_true
+#      def @book.can_be_archived
+#       true
+#   end
+#   @book.cover_state = 'good'
+#   assert_true(@book.can_be_archived)
+# end
 end

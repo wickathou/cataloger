@@ -1,35 +1,55 @@
 require_relative 'spec_utils'
 
 describe Game do
-  context 'create a game and test their methods, for a game that cannot be archived' do
-    game = Game.new('Action', 'John', 'Steam', 'EA', 2019, 2020)
 
-    it 'shows information about the game' do
-      expect(game.genre).to eq 'Action'
-      expect(game.author).to eq 'John'
-      expect(game.source).to eq 'Steam'
-      expect(game.label).to eq 'EA'
-      expect(game.publish_date).to eq 2019
-      expect(game.last_played_date).to eq 2020
-      expect(game.archived).to eq false
-      expect(game.multiplayer).to eq false
+  
+  let(:genre) {double('genre', items: [])}
+  let(:label) {double('label', items: [])}
+  let(:author) {double('author', items: [])}
+  let(:game) {Game.new([genre], [author], [label])}
+
+  before do
+    allow_any_instance_of(Game).to receive(:instance_selector).and_return(genre, author, label)
+    allow_any_instance_of(Game).to receive(:last_played_date_input).and_return(2020)
+  end
+
+  context 'when initialized' do
+    before do
+      allow_any_instance_of(Game).to receive(:is_multiplayer?).and_return(true)
+      allow_any_instance_of(Game).to receive(:publish_date_input).and_return(2010)
     end
 
-    it 'Returns false for the game that cannot be archived' do
-      expect(game.can_be_archived?).to eq false
+    it 'shows information about the game' do
+      expect(game.genre).to eq genre
+      expect(game.author).to eq author
+      expect(game.label).to eq label
+      expect(game.publish_date).to eq 2010
+      expect(game.last_played_date).to eq 2020
+      expect(game.archived).to eq false
+    end
+    it 'is multiplayer' do
+      expect(game.multiplayer).to eq true
+    end
+    it 'can be archived' do
+      game.move_to_archive
+      expect(game.archived).to eq true
     end
   end
 
-  context 'create a game and test their methods, for a game that can be archived' do
-    game = Game.new('Action', 'John', 'Steam', 'EA', 2000, 2018)
-
-    it 'Returns true for a game that can be archived' do
-      expect(game.can_be_archived?).to eq true
+  context 'when initialized' do
+    before do
+      allow_any_instance_of(Game).to receive(:is_multiplayer?).and_return(false)
+      allow_any_instance_of(Game).to receive(:publish_date_input).and_return(2015)
+      allow_any_instance_of(Game).to receive(:last_played_date_input).and_return(2020)
     end
 
-    it 'can be archived?' do
+    it 'is not multiplayer' do
+      expect(game.multiplayer).to eq false
+    end
+
+    it 'cannot be archived' do
       game.move_to_archive
-      expect(game.archived).to eq true
+      expect(game.archived).to eq false
     end
   end
 end
