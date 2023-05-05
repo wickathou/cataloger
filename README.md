@@ -94,9 +94,9 @@ rspec spec
 
 👤 **Javier Hernandez**
 
-- - GitHub: [@wickathou](https://github.com/wickathou)
+- GitHub: [@wickathou](https://github.com/wickathou)
 - LinkedIn: [@javierjhm](https://linkedin.com/in/javierjhm)
-- Portfolio: [End Design Co.](https://works.enddesign.co/)
+- Portfolio: [End Design Co.](https://enddesign.co/)
 
 👤 **Rita Nkem Daniel**
 
