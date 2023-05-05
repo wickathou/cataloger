@@ -33,11 +33,7 @@ include Utilities
     when '6'
       list_all_instances(@labels, Label)
     when '7'
-      puts 'Input the book publisher'
-      publisher = gets.chomp
-      puts 'Input the book cover state'
-      cover_state = gets.chomp
-      @items << Book.new(@genres, @authors, @labels, publisher, cover_state)
+      @items << Book.new(@genres, @authors, @labels)
     when '8'
       puts 'Is the music album on spotify? y/n'
       on_spotify = gets.chomp.downcase
