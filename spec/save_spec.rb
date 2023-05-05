@@ -14,6 +14,9 @@ describe 'Save decorators' do
   let(:items) {[game, music, book]}
 
   let(:save_items) {SaveItemDecorator.new(items)}
+  let(:save_genres) {SaveGenreDecorator.new([genre])}
+  let(:save_authors) {SaveAuthorDecorator.new([author])}
+  let(:save_labels) {SaveLabelDecorator.new([label])}
   before do
     allow_any_instance_of(SaveItemDecorator).to receive(:class_properties_generator).with(game).and_return({multiplayer: true, last_played_date: 2020})
     allow_any_instance_of(SaveItemDecorator).to receive(:class_properties_generator).with(music).and_return({on_spotify: true})
@@ -22,7 +25,25 @@ describe 'Save decorators' do
 
   it 'creates a SaveItemDecorator' do
 
-    SaveItemDecorator.new(items).save_routine
+    save_items.save_routine
     expect(File.exist?('./data/items.json')).to be true
+  end
+
+  it 'creates a SaveGenreDecorator' do
+      
+    save_genres.save_routine
+    expect(File.exist?('./data/genres.json')).to be true
+  end
+  
+  it 'creates a SaveAuthorDecorator' do
+      
+    save_authors.save_routine
+    expect(File.exist?('./data/authors.json')).to be true
+  end
+
+  it 'creates a SaveLabelDecorator' do
+
+    save_labels.save_routine
+    expect(File.exist?('./data/labels.json')).to be true
   end
 end
