@@ -1,12 +1,10 @@
 require_relative 'spec_utils'
 
 describe Game do
-
-  
-  let(:genre) {double('genre', items: [])}
-  let(:label) {double('label', items: [])}
-  let(:author) {double('author', items: [])}
-  let(:game) {Game.new([genre], [author], [label])}
+  let(:genre) { double('genre', items: []) }
+  let(:label) { double('label', items: []) }
+  let(:author) { double('author', items: []) }
+  let(:game) { Game.new([genre], [author], [label]) }
 
   before do
     allow_any_instance_of(Game).to receive(:instance_selector).and_return(genre, author, label)

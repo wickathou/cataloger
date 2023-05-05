@@ -24,9 +24,10 @@ module Utilities
   end
 
   def list_all_instances(array, class_name = nil)
-    return puts 'No items' if array.empty? || array.none? { |item| item.is_a?(class_name)} unless class_name.nil?
+    return puts 'No items' if (!class_name.nil? && array.empty?) || array.none? { |item| item.is_a?(class_name) }
+
     array.each_with_index do |item, index|
-      if item.class == class_name
+      if item.instance_of?(class_name)
         puts "#{index} - Item class: #{item.class}"
         class_name_lister(item, item.class)
       elsif class_name.nil?
@@ -44,19 +45,16 @@ module Utilities
     when 'Label'
       puts "Title: #{item.title} - Color: #{item.color}"
     when 'Game'
-      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name}"
-      puts "Publish date: #{item.publish_date} - Label: #{item.label}"
-      puts "Multiplayer: #{item.multiplayer} - Last played: #{item.last_played_date} - archived: #{item.archived}"
+      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name} - Publish date: #{item.publish_date}"
+      puts "Label: #{item.label} - Multiplayer: #{item.multiplayer} - Last played: #{item.last_played_date} - archived: #{item.archived}"
     when 'Book'
-      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name}"
-      puts "Publish date: #{item.publish_date} - Label: #{item.label}"
-      puts "Publisher: #{item.publisher} - Cover state: #{item.cover_state} - archived: #{item.archived}"
+      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name} - Publish date: #{item.publish_date}"
+      puts "Label: #{item.label} - Publisher: #{item.publisher} - Cover state: #{item.cover_state} - archived: #{item.archived}"
     when 'MusicAlbum'
-      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name}"
-      puts "Publish date: #{item.publish_date} - Label: #{item.label}"
-      puts "On spotify:#{item.on_spotify} - archived: #{item.archived}"
+      puts "Genre: #{item.genre} - Author: #{item.author.first_name} #{item.author.last_name} - Publish date: #{item.publish_date}"
+      puts "Label: #{item.label} - On spotify:#{item.on_spotify} - archived: #{item.archived}"
     else
-      puts "#{item}"
+      puts item
     end
   end
 end

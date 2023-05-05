@@ -2,15 +2,15 @@ require_relative 'item'
 
 class Game < Item
   attr_accessor :multiplayer, :last_played_date
+
   def initialize(genre_array, author_array, label_array)
     super(genre_array, author_array, label_array)
     @multiplayer = is_multiplayer?
     @last_played_date = last_played_date_input
   end
 
-  
   private
-  
+
   def can_be_archived?
     return true if Time.now.year - @last_played_date > 2 && super
 
@@ -22,12 +22,12 @@ class Game < Item
     multiplayer = gets.chomp.downcase
     case multiplayer
     when 'y'
-      return true
+      true
     when 'n'
-      return false
+      false
     else
       puts 'Invalid input'
-      return is_multiplayer?
+      is_multiplayer?
     end
   end
 
@@ -38,9 +38,8 @@ class Game < Item
       puts 'Invalid date'
       return last_played_date_input
     end
-    return last_played_date    
+    last_played_date
   end
-
 end
 
 # game = Game.new(['a', 'b', 'c'], ['d','e'], ['1','2'])

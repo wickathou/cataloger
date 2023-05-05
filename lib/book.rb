@@ -1,27 +1,28 @@
 require_relative 'item'
 
-class Book < Item 
+class Book < Item
   attr_accessor :publisher, :cover_state
+
   def initialize(genre_array, author_array, label_array)
     super(genre_array, author_array, label_array)
-    @publisher = publisher
-    @cover_state = cover_state
+    @publisher = publisher_input
+    @cover_state = cover_state_input
   end
 
   private
-  
+
   def can_be_archived?
-      super || @cover_state == 'bad'
+    super || @cover_state == 'bad'
   end
 
-  def publisher
+  def publisher_input
     puts 'Input the book publisher'
-      publisher = gets.chomp
+    publisher = gets.chomp
   end
 
-  def cover_state
+  def cover_state_input
     puts 'Input the book cover state'
-      cover_state = gets.chomp
+    cover_state = gets.chomp
   end
 end
 
