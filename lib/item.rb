@@ -2,7 +2,8 @@ require_relative 'author'
 require 'securerandom'
 
 class Item
-  attr_reader :id, :genre, :author, :label, :publish_date, :archived
+  attr_accessor :author, :label, :genre
+  attr_reader :id, :publish_date, :archived
   def initialize(genre_array, author_array, label_array, id = nil)
     @id = id || SecureRandom.uuid
     puts 'Please select a genre'
