@@ -1,7 +1,7 @@
 require_relative 'utils'
 
 class App
-include Utilities
+  include Utilities
   def initialize
     @genres = []
     @authors = []
@@ -9,7 +9,7 @@ include Utilities
     @items = []
     run
   end
-  
+
   private
 
   def run
@@ -41,12 +41,12 @@ include Utilities
     when '8'
       puts 'Is the music album on spotify? y/n'
       on_spotify = gets.chomp.downcase
-      case on_spotify
-      when 'y'
-        on_spotify = true
-      else
-        on_spotify = false
-      end
+      on_spotify = case on_spotify
+                   when 'y'
+                     true
+                   else
+                     false
+                   end
       @items << MusicAlbum.new(@genres, @authors, @labels, on_spotify)
     when '9'
       @items << Game.new(@genres, @authors, @labels)

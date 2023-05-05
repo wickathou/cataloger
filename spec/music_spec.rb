@@ -3,12 +3,12 @@ require_relative '../lib/music'
 
 class TestMusicAlbum < Minitest::Test
   def setup
-    @genre = ["Rock"]
-    @author = ["Linkin Park"]
-    @label = ["Lost"]
+    @genre = ['Rock']
+    @author = ['Linkin Park']
+    @label = ['Lost']
     @on_spotify = true
-    @album = MusicAlbum.new(@genre, @author, @label, 
-                             @on_spotify)
+    @album = MusicAlbum.new(@genre, @author, @label,
+                            @on_spotify)
   end
 
   def test_music_album_attributes
@@ -24,4 +24,3 @@ class TestMusicAlbum < Minitest::Test
     assert_equal false, @album.can_be_archived?
   end
 end
-

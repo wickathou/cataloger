@@ -5,8 +5,8 @@ require_relative '../lib/item'
 class TestGenre < Minitest::Test
   def setup
     @genre = Genre.new
-    @item1 = Item.new("Item 1")
-    @item2 = Item.new("Item 2")
+    @item1 = Item.new('Item 1')
+    @item2 = Item.new('Item 2')
   end
 
   def test_genre_attributes
