@@ -14,6 +14,7 @@ include Category_Utils
 
   def add_item(item)
     @items << item unless @items.include?(item)
+    puts item.author
     item.author = self
   end
 end
