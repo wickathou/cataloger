@@ -3,9 +3,20 @@ require_relative 'item'
 class MusicAlbum < Item
   attr_accessor :on_spotify
 
-  def initialize(genre_array, author_array, label_array, on_spotify = false)
+  def initialize(genre_array, author_array, label_array)
     super(genre_array, author_array, label_array)
     @on_spotify = on_spotify
+  end
+
+  def on_spotify
+    puts 'Is the music album on spotify? y/n'
+    on_spotify = gets.chomp.downcase
+    case on_spotify
+    when 'y'
+      on_spotify = true
+    else
+      on_spotify = false
+    end
   end
 
   private

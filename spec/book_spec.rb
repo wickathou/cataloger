@@ -1,31 +1,48 @@
-require 'minitest/autorun'
-require 'rspec'
-require_relative '../lib/book'
+require_relative 'spec_utils'
 
-class TestBookAlbum < Minitest::Test
-  def setup
-    @genre = ['Fiction']
-    @author = ['james']
-    @label = ['script']
-    
+describe Book do
+
+  
+  let(:genre) {double('genre', items: [])}
+  let(:label) {double('label', items: [])}
+  let(:author) {double('author', items: [])}
+  let(:book) {Book.new([genre], [author], [label])}
+
+  before do
+    allow_any_instance_of(Book).to receive(:instance_selector).and_return(genre, author, label)
+  end
+  
+  context 'when initialized' do
+    before do
+      allow_any_instance_of(Book).to receive(:cover_state).and_return('good')
+      allow_any_instance_of(Book).to receive(:publisher).and_return('publisher')
+      allow_any_instance_of(Book).to receive(:publish_date_input).and_return(2010)
+    end
+
+    it 'shows information about the Book' do
+      expect(book.genre).to eq genre
+      expect(book.author).to eq author
+      expect(book.label).to eq label
+      expect(book.publish_date).to eq 2010
+      expect(book.cover_state).to eq 'good'
+      expect(book.publisher).to eq 'publisher'
+    end
+    it 'can be archived' do
+      book.move_to_archive
+      expect(book.archived).to eq true
+    end
   end
 
-  def test_can_be_archived_returns_true_when_cover_state_is_bad
-  #  @book.cover_state = 'bad'
-   @book = Book.new('fiction', 'victor', 'script')
-   assert_true(@book.can_be_archived)
+  context 'when initialized' do
+    before do
+      allow_any_instance_of(Book).to receive(:cover_state).and_return('good')
+      allow_any_instance_of(Book).to receive(:publisher).and_return('publisher')
+      allow_any_instance_of(Book).to receive(:publish_date_input).and_return(2015)
+    end
+
+    it 'cannot be archived' do
+      book.move_to_archive
+      expect(book.archived).to eq false
+    end
   end
-
-  # def test_can_be_archived_returns_false_when_cover_state_is_good
-  #   @book.cover_state = 'good'
-  #   assert_true(@book.can_be_archived)
-  # end
-
-#   def test_can_be_archived_returns_true_when_superclass_method_returns_true
-#      def @book.can_be_archived
-#       true
-#   end
-#   @book.cover_state = 'good'
-#   assert_true(@book.can_be_archived)
-# end
 end

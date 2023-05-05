@@ -1,17 +1,29 @@
 require_relative 'spec_utils'
 
-require './label'
-
 describe Label do
-  context 'create a book' do
-    label = Label.new('things fall apart', 'blue')
-
-    it 'return name of the book' do
-      expect(label.title).to eq('things fall apart')
+  let(:label) {Label.new}
+  before do
+    allow_any_instance_of(Label).to receive(:text_input).and_return('Label title', 'Label color')
+  end
+  context 'when initialized' do
+    
+    it 'has a first name and last name' do
+      expect(label.id.length).to eq(36)
+      expect(label.title).to eq('Label title')
+      expect(label.color).to eq('Label color')
     end
+  end
 
-    it 'return the state of the book' do
-      expect(label.color).to eq('blue')
+  context 'when adding an item' do
+    
+    let(:item) {double('item', label: nil)}
+    before do
+      allow(item).to receive(:label=).with(label).and_return(label)
+    end
+    
+    it 'adds the item to the label' do
+      label.add_item(item)
+      expect(label.items).to include(item)
     end
   end
 end
