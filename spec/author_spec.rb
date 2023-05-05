@@ -1,18 +1,29 @@
 require_relative 'spec_utils'
 
 describe Author do
+  let(:author) {Author.new}
+  before do
+    allow_any_instance_of(Author).to receive(:text_input).and_return('Firstname', 'Lastname')
+  end
   context 'when initialized' do
-    author = Author.new('Leo', 'Tolstoy')
-    it 'has a first name' do
-      expect(author.first_name).to eq('Leo')
-      expect(author.last_name).to eq('Tolstoy')
+    
+    it 'has a first name and last name' do
+      expect(author.id.length).to eq(36)
+      expect(author.first_name).to eq('Firstname')
+      expect(author.last_name).to eq('Lastname')
     end
-    it 'has no items' do
-      expect(author.items).to eq([])
+  end
+
+  context 'when adding an item' do
+    
+    let(:item) {double('item', author: nil)}
+    before do
+      allow(item).to receive(:author=).with(author).and_return(author)
     end
-    it 'has one item' do
-      author.add_item(Item.new('War and Peace', author, 'book', 'Penguin', '2010'))
-      expect(author.items.length).to eq(1)
+    
+    it 'adds the item to the author' do
+      author.add_item(item)
+      expect(author.items).to include(item)
     end
   end
 end

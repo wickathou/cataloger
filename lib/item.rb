@@ -2,7 +2,8 @@ require_relative 'author'
 require 'securerandom'
 
 class Item
-  attr_reader :id, :genre, :author, :label, :publish_date, :archived
+  attr_accessor :author, :label, :genre
+  attr_reader :id, :publish_date, :archived
   def initialize(genre_array, author_array, label_array, id = nil)
     @id = id || SecureRandom.uuid
     puts 'Please select a genre'
@@ -11,7 +12,9 @@ class Item
     @author = instance_selector(author_array, Author)
     puts 'Please select a label'
     @label = instance_selector(label_array, Label)
+    @genre.items << self unless genre.items.include?(self)
     @author.items << self unless author.items.include?(self)
+    @label.items << self unless label.items.include?(self)
     @publish_date = publish_date_input
     @archived = false 
   end
@@ -21,7 +24,7 @@ class Item
   end
 
   private
-
+  
   def can_be_archived?
     return true if Time.now.year - @publish_date > 10
 
