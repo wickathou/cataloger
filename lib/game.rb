@@ -41,6 +41,3 @@ class Game < Item
     last_played_date
   end
 end
-
-# game = Game.new(['a', 'b', 'c'], ['d','e'], ['1','2'])
-# puts game.inspect

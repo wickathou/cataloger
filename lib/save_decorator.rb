@@ -152,20 +152,3 @@ def label_hash(instance)
     label_color: instance.label.color
   }
 end
-
-# class SaveGameDecorator < SaveItemDecorator
-#   def hash_generator
-#     @instances.each do |instance|
-#       @hash[instance] = {
-#         id: instance.id,
-#         multiplayer: instance.multiplayer,
-#         last_played_date: instance.last_played_date,
-#         items: instance.items.map(&:id)
-#       }
-#     end
-#   end
-
-#   def save_json
-#     File.write('./data/authors.json', to_json)
-#   end
-# end

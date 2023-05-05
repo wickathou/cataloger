@@ -25,6 +25,3 @@ class MusicAlbum < Item
     return true if super && on_spotify
   end
 end
-
-# music = MusicAlbum.new(['a', 'b', 'c'], [Author.new], ['1','2'], true)
-# puts music.inspect

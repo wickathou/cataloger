@@ -18,6 +18,3 @@ class Author
     item.author = self
   end
 end
-
-# author = Author.new
-# puts author.inspect

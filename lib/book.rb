@@ -25,6 +25,3 @@ class Book < Item
     gets.chomp
   end
 end
-
-# book = Book.new(['a', 'b', 'c'], [Author.new], ['1','2'], 'publisher', 'cover_state')
-# puts book.inspect

@@ -73,6 +73,3 @@ class Item
     end
   end
 end
-
-# item = Item.new(['d','e'], ['a'], ['1','2'])
-# puts item.inspect

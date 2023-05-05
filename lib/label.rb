@@ -17,6 +17,3 @@ class Label
     item.label = self
   end
 end
-
-# label = Label.new
-# puts label.inspect

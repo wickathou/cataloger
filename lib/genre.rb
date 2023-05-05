@@ -16,5 +16,3 @@ class Genre
     @items << item unless @items.include?(item)
   end
 end
-# genre = Genre.new
-# puts genre.inspect
