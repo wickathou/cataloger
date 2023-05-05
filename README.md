@@ -1,21 +1,22 @@
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-- [🚀 Video Demo ](#-video-demo-)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Cataloger ](#-cataloger-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Video Demo ](#-video-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 # 📖 Cataloger <a name="about-project"></a>
 
@@ -25,8 +26,8 @@ Cataloger: In this project, we created a console app that will help user to keep
 
 ### Tech Stack <a name="tech-stack"></a>
 
-- Languages: Ruby
-- Frameworks: N/A
+- Languages: Ruby, SQL
+- Frameworks: Rspec
 - Technologies Used: GIT, GITHUB, LINTERS
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -61,8 +62,8 @@ In order to run this project you need:
 Clone the repo, and install the dependencies
 
 ```sh
+  git clone git@github.com:wickathou/cataloger.git
   cd your-folder
-  https://github.com/wickathou/cataloger
 ```
 
 ### Install
@@ -70,9 +71,7 @@ Clone the repo, and install the dependencies
 Install this project with:
 
 ```sh
-- Linters
-- Install bundle
-- Rubocop
+bundle install
 ```
 
 ### Usage
@@ -82,6 +81,11 @@ To run the project, execute the following command:
 - To run the app
 ```sh
 ruby lib/main.rb
+```
+
+- To run the tests
+```sh
+rspec spec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
