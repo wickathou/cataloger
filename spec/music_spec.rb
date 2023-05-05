@@ -1,13 +1,27 @@
-require_relative '../music/music'
+require 'minitest/autorun'
+require_relative '../lib/music'
 
-require_relative '../lib/item'
-
-describe MusicAlbum do
-  before :each do
-    @music = MusicAlbum.new(true)
+class TestMusicAlbum < Minitest::Test
+  def setup
+    @genre = ["Rock"]
+    @author = ["Linkin Park"]
+    @label = ["Lost"]
+    @on_spotify = true
+    @album = MusicAlbum.new(@genre, @author, @label, 
+                             @on_spotify)
   end
 
-  it 'check if the music is on spotify' do
-    expect(@music.on_spotify).to eq(true)
+  def test_music_album_attributes
+    assert_equal @genre, @album.genre
+    assert_equal @author, @album.author
+    assert_equal @label, @album.label
+    assert_equal @on_spotify, @album.on_spotify
+  end
+
+  def test_music_album_archival_status
+    assert_equal true, @album.can_be_archived?
+    @album.on_spotify = false
+    assert_equal false, @album.can_be_archived?
   end
 end
+
